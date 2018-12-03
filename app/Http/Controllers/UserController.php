@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Maklad\Permission\Models\Role;
 use Maklad\Permission\Models\Permission;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller {
 
@@ -44,7 +45,8 @@ class UserController extends Controller {
     public function edit($id) {
         $roles = Role::all();
         $user = User::find($id);
-        return view('users.edituser', compact('user', 'roles','id'));
+        $currentroles = $user->getRoleNames();
+        return view('users.edituser', compact('user', 'roles','currentroles','id'));
     }
 
     public function store(Request $request) {
@@ -60,7 +62,10 @@ class UserController extends Controller {
         $user->update($request->all());
         $user->syncRoles($request->Input('roles'));
 
-        return back()->with('success', 'Book created successfully.');
+        
+        //return redirect()->route('user.list')->with('success', 'Record created successfully.');
+        Session::flash('alert-success', 'Record updated successfully');
+        return redirect()->route('user.list');
     }
 
     public function createRoles() {

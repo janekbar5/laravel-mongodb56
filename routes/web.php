@@ -18,16 +18,18 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/createroles', 'HomeController@createRoles')->name('createroles');
 Route::get('/createadmin', 'HomeController@createAdmin')->name('createadmin');
+Route::get('/createeditor', 'HomeController@createEditor')->name('createeditor');
+
+
 
 Route::get('/getuserslist',   'UserController@getUsersList')->name('user.list');
 Route::get('/edituser?{$id}', 'UserController@editUser')->name('user.edituser');
 
 Route::post('/userstore',   'UserController@store')->name('user.store');
 
-Route::get('edit/{id}','UserController@edit');
+Route::get('edit/{id}','UserController@edit')->name('user.edit');;
 
 Route::resource('books','BookController');
 

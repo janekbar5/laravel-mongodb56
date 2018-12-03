@@ -6,8 +6,25 @@
     <h1>Dashboard</h1>
 @stop
 
-@section('content')
-    <p>You are logged inccccccccccccccccc!</p>
+@section('content')       
+    
+    <div class="flash-message">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+      @if(Session::has('alert-' . $msg))
+
+      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+      @endif
+    @endforeach
+  </div> 
+                      
+                                
+   @if (session('success'))
+        <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session('success') }}
+        </div>
+    @endif                             
+                                
+  
 	
 	<div class="box-body">
               <table class="table table-bordered">
@@ -29,9 +46,10 @@
 					
                   </td>
                   <td>
-				  <a href="{{ route('user.edituser',$user->id) }}" class="btn btn-success btn-sm">
+				  <a href="{{ route('user.edit',$user->id) }}" class="btn btn-success btn-sm">
 				  <span class="glyphicon glyphicon-plus"></span>Edit </a>
-				  <a href="{{action('UserController@edit', $user->id)}}" class="btn btn-warning">Edit</a>
+                                  
+				  <!--<a href="{{action('UserController@edit', $user->id)}}" class="btn btn-warning">Edit</a>-->
 				  </td>
                 </tr>
 				@endforeach
