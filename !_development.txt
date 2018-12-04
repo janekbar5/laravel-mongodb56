@@ -1,10 +1,11 @@
 ///////////////////////////////done:
 -Rback (user access)
-
+-multiple img upload
+-simple crude
 ///////////////////////////////todo:
 -email confirmation
--simple crude
--multiple img upload
+
+
 -cascading dd
 -instant search
 -multiple tags (only existed)
