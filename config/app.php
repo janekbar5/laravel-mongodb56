@@ -164,7 +164,7 @@ return [
 	Jenssegers\Mongodb\MongodbServiceProvider::class,
 	Maklad\Permission\PermissionServiceProvider::class,
 	JeroenNoten\LaravelAdminLte\ServiceProvider::class,
-        //Collective\Html\HtmlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -216,6 +216,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 		
 	'Moloquent' => Jenssegers\Mongodb\Eloquent\Model::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         //'Form' => Collective\Html\FormFacade::class,
         //'Html' => Collective\Html\HtmlFacade::class,
 		
