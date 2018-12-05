@@ -27,6 +27,14 @@ class Book extends Eloquent
         return $this->belongsTo('App\Category','category_id');
     }
 
+	public function tags()
+    {
+        //return $this->belongsToMany('App\Vehicle','vehicle_tag','vehicle_id','tag_id');
+		return $this->belongsToMany('App\Tag', null, 'book_ids', 'tag_ids');
+    }
+	
+	
+	
 	
 	
     public function getCategory($id)

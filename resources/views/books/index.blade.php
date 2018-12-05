@@ -32,6 +32,7 @@
             <th>Img</th>
             <th>Name</th>            
             <th>Category</th>
+            <th>Tags</th>
             <th width="280px">Action</th>
         </tr>
 	    @foreach ($books as $key=>$book)
@@ -52,6 +53,17 @@
 	        <td>{{ $book->name }}</td>
 	       
 		<td>{{ $book->category()->first()->name }}</td>
+                
+                <td>
+                    @foreach ($book->tags()->get() as $tag)
+                    {{$tag->title}}
+                    @endforeach  
+                    
+                    
+                    
+                   
+                </td>
+                
 	        <td>
                    <form action="{{ route('books.destroy',$book->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('books.show',$book->id) }}">Show</a>

@@ -58,6 +58,16 @@ Route::post('categories/edit/{id}', 'CategoriesController@update')->name('catego
 Route::get('categories/show/{id}', 'CategoriesController@show')->name('categories.show');
 Route::delete('categories/delete/{id}', 'CategoriesController@destroy')->name('categories.destroy');
 //////////////////////////////////
+/////////////////////////////////
+Route::get('tags/index', 'TagsController@index')->name('tags.index');
+Route::get('tags/create', 'TagsController@create')->name('tags.create');
+Route::post('tags/store', 'TagsController@store')->name('tags.store');
+Route::get('tags/index', 'TagsController@index')->name('tags.index');
+Route::get('tags/edit/{id}', 'TagsController@edit')->name('tags.edit');
+Route::post('tags/edit/{id}', 'TagsController@update')->name('tags.update');
+Route::get('tags/show/{id}', 'TagsController@show')->name('tags.show');
+Route::delete('tags/delete/{id}', 'TagsController@destroy')->name('tags.destroy');
+//////////////////////////////////
 //Route::post('images/deleteimg', 'ImagesController@getImageDelete2')->name('images.store');	
 Route::post('images/changeImageOrder', 'ImagesController@changeImageOrder')->name('images.store');	
 Route::get('images/deleteimgwithvehicle/{id}', 'ImagesController@deleteImageswithVehicle')->name('images.store');

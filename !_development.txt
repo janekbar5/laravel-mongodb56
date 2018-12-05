@@ -2,11 +2,9 @@
 -Rback (user access)
 -multiple img upload
 -simple crude
+-multiple tags (only existed)
 ///////////////////////////////todo:
 -email confirmation
-
-
 -cascading dd
 -instant search
--multiple tags (only existed)
 -multiple tags (existed + new)

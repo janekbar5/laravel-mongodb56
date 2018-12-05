@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 use App\Book;
+use App\Tag;
 use App\Category;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Auth;
@@ -68,9 +69,9 @@ class BooksController extends Controller
     
     public function show($id)
     {
-        
+        $tags = Tag::all();
 	$book = Book::find($id);
-	return view('books.show',compact('book'));
+	return view('books.show',compact('book','tags'));
     }
 
 
@@ -81,7 +82,9 @@ class BooksController extends Controller
         $book = Book::find($id);
         $categories = $this->getCategories();
         $category = Category::find($book->category_id);
-	return view('books.edit',compact('book','categories','category'));
+        $tags = Tag::all();
+        //dd($tags);
+	return view('books.edit',compact('book','categories','category','tags'));
     }
 
 
@@ -99,8 +102,9 @@ class BooksController extends Controller
 
         $book = Book::find($id);
         $book->update($request->all());
-
-
+        //dd($request->Input('tags'));
+        $book->tags()->sync($request->Input('tags'));
+        
         return redirect()->route('books.index')
                          ->with('success','Book updated successfully');
     }

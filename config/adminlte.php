@@ -121,16 +121,22 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-	[
+		[
             'text'        => 'Users',
             'url'         => 'getuserslist',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',
         ],
-	[
+		[
             'text'        => 'Books',
             'url'         => 'books/index',
+            'icon'        => 'book',
+            
+        ],
+		[
+            'text'        => 'Tags',
+            'url'         => 'tags/index',
             'icon'        => 'book',
             
         ],

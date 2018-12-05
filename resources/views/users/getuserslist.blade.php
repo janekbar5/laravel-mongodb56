@@ -40,7 +40,7 @@
                   <td>{{ $user->id }}</td>
                   <td>{{ $user->name }} {{ $user->email }}</td>
                   <td>
-				    {{ $user->getDirectPermissions() }} 
+				        {{ $user->getDirectPermissions() }} 
 					{{ $user->getAllPermissions() }}
 					{{ $user->getRoleNames() }}
 					
